@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ sectionRefs }) => {
           );
         })}
         
-        {/* Music Toggle inside navbar */}
+        
         <div className="h-6 w-px bg-neutral-300 dark:bg-neutral-600 mx-1"></div>
         <MusicToggle />
         </motion.ul>
