@@ -71,8 +71,8 @@
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/TejaNaik15/portfolio.git
-cd portfolio
+git clone https://github.com/TejaNaik15/Teja-Portfolio.git
+cd Teja-Portfolio
 ```
 
 2. **Install dependencies**
