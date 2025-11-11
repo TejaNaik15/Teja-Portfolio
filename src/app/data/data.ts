@@ -261,15 +261,17 @@ export const education = {
 // =================================================================
 // 💼 EXPERIENCE INFORMATION
 // =================================================================
-export const experience = [
-  {
-    company: "Fresher",
-    position: "Full Stack Developer",
-    duration: "Currently Seeking Opportunities",
-    location: "Hyderabad, India",
-    description: "Passionate about building modern web applications with cutting-edge technologies."
-  }
-];
+export const experience = {
+  companyName: "Fresher",
+  position: "Full Stack Developer",
+  duration: "Currently Seeking Opportunities",
+  location: "Hyderabad, India",
+  achievements: [
+    "Passionate about building modern web applications with cutting-edge technologies.",
+    "Actively learning and exploring new frameworks and tools.",
+    "Building personal projects to showcase technical skills."
+  ]
+};
 
 // =================================================================
 // 🏆 CERTIFICATIONS
