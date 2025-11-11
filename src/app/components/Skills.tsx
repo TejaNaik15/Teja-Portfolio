@@ -28,7 +28,7 @@ const Skills = () => {
               key={index}
               className="inline-flex justify-center items-center gap-2 px-3 rounded-full py-1 text-xs md:text-sm border border-neutral-300 dark:border-neutral-600"
             >
-              <Icon style={{ color: color }} />
+              <Icon style={{ color: color } as React.CSSProperties} />
               {skill.name}
             </motion.span>
           );

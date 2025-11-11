@@ -77,9 +77,9 @@ export function MusicToggle() {
     >
       <motion.span>
         {isPlaying ? (
-          <HiVolumeUp className="text-neutral-900 dark:text-neutral-100" style={{ fontSize: '18px' }} />
+          <HiVolumeUp className="text-neutral-900 dark:text-neutral-100" style={{ fontSize: '18px' } as React.CSSProperties} />
         ) : (
-          <HiVolumeOff className="text-neutral-900 dark:text-neutral-100" style={{ fontSize: '18px' }} />
+          <HiVolumeOff className="text-neutral-900 dark:text-neutral-100" style={{ fontSize: '18px' } as React.CSSProperties} />
         )}
         <motion.span
           className="absolute top-full left-1/2 -translate-x-1/2 mt-1.5 px-2 py-1 bg-neutral-900 dark:bg-white text-neutral-100 dark:text-neutral-900 text-xs rounded-md whitespace-nowrap"
