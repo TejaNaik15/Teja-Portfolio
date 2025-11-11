@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({ sectionRefs }) => {
                 }
               >
                 <motion.span>
-                  <Icon />
+                  {React.createElement(Icon as any)}
                   <motion.span
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-1.5 px-2 py-1 bg-neutral-900 dark:bg-white text-neutral-100 dark:text-neutral-900 text-xs rounded-md whitespace-nowrap"
                     variants={tooltipVariants}
