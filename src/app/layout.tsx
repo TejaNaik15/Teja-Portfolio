@@ -53,9 +53,12 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  // Set dark mode as default
+                  // Force dark mode on all devices
                   document.documentElement.style.colorScheme = 'dark';
                   document.documentElement.classList.add('dark');
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  document.body.style.backgroundColor = '#0a0a0a';
+                  document.body.style.color = '#ededed';
                 } catch (e) {
                   console.warn('Theme initialization failed:', e);
                 }
@@ -64,7 +67,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${outfit.variable} antialiased bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100`}>{children}</body>
+      <body className={`${outfit.variable} antialiased bg-neutral-950 text-neutral-100 dark`}>{children}</body>
     </html>
   );
 }
