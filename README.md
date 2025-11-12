@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Portfolio Banner](https://via.placeholder.com/1200x400/0a0a0a/ffffff?text=Keloth+Teja+Naik+Portfolio)
+![Portfolio Banner](./public/img/preview.png)
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.0.1-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
