@@ -87,7 +87,7 @@ export const siteConfig = {
 // =================================================================
 export const contactInfo = {
   email: "tinkuteja740@gmail.com", // Your email address
-  whatsappNumber: "8106873661", // Your WhatsApp number (without + sign)
+  whatsappNumber: "918106873661", // Your WhatsApp number (with country code, without + sign)
   phoneNumber: "7569474682", // Additional phone number
   location: "Hyderabad, India", // Your location
   whatsappMessage: "Hi! I'm interested in working with you. Can we chat?", // Default WhatsApp message
