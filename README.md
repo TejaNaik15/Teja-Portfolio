@@ -12,7 +12,7 @@
 
 **A modern, responsive portfolio showcasing full-stack development expertise with cutting-edge animations and 3D interactions**
 
-[🌐 Live Demo](https://your-portfolio-url.vercel.app) • [📧 Contact](mailto:tinkuteja740@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/teja-naik-0b3021282/)
+[🌐 Live Demo](https://teja-portfolio-yrei.vercel.app/) • [📧 Contact](mailto:tinkuteja740@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/teja-naik-0b3021282/)
 
 </div>
 
