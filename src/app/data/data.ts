@@ -41,13 +41,13 @@ export const personalInfo = {
   title: "Full Stack Developer", 
   tagline: "Crafting Beautiful & Functional Web Experiences",
   description:
-    "Hey, I'm Keloth Teja Naik, a Full Stack Developer passionate about building performant, user-friendly, and scalable applications.", // Hero section description
+    "Hey, I'm Keloth Teja Naik, a Full Stack Developer passionate about building performant, user-friendly, and scalable applications.", 
 
-  // Profile
+  
   profileImage: "/img/profilepic.webp",
   profileImageAlt: "Teja Naik Profile Picture", 
   summary:
-    "I'm a passionate Full-Stack Developer who enjoys building and exploring new technologies. Always learning and creating innovative solutions.", // About section summary
+    "I'm a passionate Full-Stack Developer who enjoys building and exploring new technologies. Always learning and creating innovative solutions.", 
   age: 22,
   location: "Hyderabad, India", 
 
@@ -70,47 +70,38 @@ export const personalInfo = {
 
 
 export const siteConfig = {
-  // Website URLs
-  siteUrl: "https://yourdomain.com", // Your deployed website URL
-  siteName: "Keloth Teja Naik Portfolio", // Site name for social sharing
+  
+  siteUrl: "https://teja-portfolio-yrei.vercel.app/", 
+  siteName: "Keloth Teja Naik Portfolio", 
 
-  // SEO Description
+  
   seoDescription:
     "Building scalable and performant web applications with modern technologies.",
 
-  // Social Preview Image (Take a screenshot of your homepage and save as "preview.png" in public/img/)
+  
   previewImage: "/img/preview.png",
 };
 
-// =================================================================
-// 📧 CONTACT INFORMATION
-// =================================================================
+
 export const contactInfo = {
-  email: "tinkuteja740@gmail.com", // Your email address
-  whatsappNumber: "918106873661", // Your WhatsApp number (with country code, without + sign)
-  phoneNumber: "7569474682", // Additional phone number
-  location: "Hyderabad, India", // Your location
-  whatsappMessage: "Hi! I'm interested in working with you. Can we chat?", // Default WhatsApp message
+  email: "tinkuteja740@gmail.com", 
+  whatsappNumber: "918106873661", 
+  phoneNumber: "7569474682", 
+  location: "Hyderabad, India", 
+  whatsappMessage: "Hi! I'm interested in working with you. Can we chat?", 
 
-  // Web3Forms Access Key (Get it free from https://web3forms.com/)
-  // Step 1: Go to https://web3forms.com/
-  // Step 2: Click "Create your Access Key" and generate your free access key
-  // Step 3: Copy and paste it below
-  web3formsAccessKey: "YOUR_ACCESS_KEY", // Replace with your actual Web3Forms access key
+  
+  web3formsAccessKey: "YOUR_ACCESS_KEY", 
 };
 
-// =================================================================
-// 🔗 SOCIAL LINKS
-// =================================================================
+
 export const socialLinks = {
-  linkedin: "https://www.linkedin.com/in/teja-naik-0b3021282/", // Your LinkedIn profile URL
-  github: "https://github.com/TejaNaik15", // Your GitHub profile URL
-  resumeLink: "https://drive.google.com/file/d/YOUR_RESUME_ID/view", // Google Drive link to your resume
+  linkedin: "https://www.linkedin.com/in/teja-naik-0b3021282/", 
+  github: "https://github.com/TejaNaik15", 
+  resumeLink: "https://drive.google.com/file/d/YOUR_RESUME_ID/view", 
 };
 
-// =================================================================
-// 🛠️ TECHNICAL SKILLS
-// =================================================================
+
 export const skills = [
   { name: "HTML", icon: FaHtml5, color: "#E34F26" },
   { name: "CSS", icon: FaCss3Alt, color: "#1572B6" },
@@ -165,9 +156,7 @@ export const navbarData: NavbarItem[] = [
   },
 ];
 
-// =================================================================
-// 💼 PROJECT PORTFOLIO
-// =================================================================
+
 export const projects = [
   {
     name: "AI-Content Generator",
@@ -186,7 +175,7 @@ export const projects = [
     ],
     liveLink: "https://ai-content-generator-woad-nine.vercel.app/",
     githubLink: "https://github.com/TejaNaik15/AI-Content-Generator",
-    image: "/img/ai-content.png", // Update with the actual project image
+    image: "/img/ai-content.png", 
   },
   {
     name: "AI-Developer Assistant",
@@ -206,7 +195,7 @@ export const projects = [
     ],
     liveLink: "https://code-mentor-ai-neir.vercel.app/",
     githubLink: "https://github.com/TejaNaik15/CodeMentorAI",
-    image: "/img/ai-assistant.png", // Update with the actual project image
+    image: "/img/ai-assistant.png", 
   },
   {
     name: "AI-Resume Analyzer",
@@ -225,7 +214,7 @@ export const projects = [
     ],
     liveLink: "https://resume-analyzer-ai-two.vercel.app/",
     githubLink: "https://github.com/TejaNaik15/resume-analyzer-ai",
-    image: "/img/airesume.png", // Update with the actual project image
+    image: "/img/airesume.png", 
   },
   {
     name: "CodeInsights AI",
@@ -243,13 +232,11 @@ export const projects = [
     ],
     liveLink: "#",
     githubLink: "#",
-    image: "/img/code.png", // Update with the actual project image
+    image: "/img/code.png", 
   },
 ];
 
-// =================================================================
-// 🎓 EDUCATION INFORMATION
-// =================================================================
+
 export const education = {
   institution: "CMR Institute of Technology",
   degree: "Bachelor of Technology in Computer Science and Engineering",
@@ -258,9 +245,7 @@ export const education = {
   location: "Hyderabad,   India",
 };
 
-// =================================================================
-// 💼 EXPERIENCE INFORMATION
-// =================================================================
+
 export const experience = {
   companyName: "Fresher",
   position: "Full Stack Developer",
@@ -273,9 +258,7 @@ export const experience = {
   ]
 };
 
-// =================================================================
-// 🏆 CERTIFICATIONS
-// =================================================================
+
 export const certifications = [
   {
     name: "Data Structures and Algorithms in JavaScript",
@@ -327,17 +310,13 @@ export const certifications = [
   }
 ];
 
-// =================================================================
-// 📝 ADDITIONAL CONFIGURATION
-// =================================================================
 
-// Copyright year (automatically uses current year)
 export const currentYear = new Date().getFullYear();
 
-// Additional social links for footer
+
 export const footerSocialLinks = {
   linkedin: { url: "https://www.linkedin.com/in/teja-naik-0b3021282/", name: "LinkedIn" },
   github: { url: "https://github.com/TejaNaik15", name: "GitHub" },
-  instagram: { url: "#", name: "Instagram" },
-  twitter: { url: "#", name: "Twitter" }
+  instagram: { url: "https://www.instagram.com/eren_yeager9_", name: "Instagram" },
+  twitter: { url: "https://x.com/TEJA_NAIKK", name: "Twitter" }
 };
