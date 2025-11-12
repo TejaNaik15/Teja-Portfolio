@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { fadeInUpRight } from "../data/variants";
-import Image from "next/image";
 import { personalInfo } from "../data/data";
 import { GrLocation } from "react-icons/gr";
+import ProfileCard from "./ProfileCard";
 
 const PersonalInfo = () => {
   return (
@@ -11,12 +11,19 @@ const PersonalInfo = () => {
         variants={fadeInUpRight}
         initial="hidden"
         whileInView="visible"
+        className="flex justify-center"
       >
-        <Image
-          src={personalInfo.profileImage}
-          alt={personalInfo.profileImageAlt}
-          width={170}
-          height={170}
+        <ProfileCard
+          avatarUrl={personalInfo.profileImage}
+          name={personalInfo.name}
+          title={personalInfo.title}
+          handle="tejanaik"
+          status="Available for Work"
+          contactText="Contact"
+          showUserInfo={true}
+          onContactClick={() => {
+            window.open('mailto:tinkuteja740@gmail.com', '_blank');
+          }}
         />
       </motion.div>
       <motion.p
