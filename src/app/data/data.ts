@@ -85,7 +85,7 @@ export const siteConfig = {
 
 export const contactInfo = {
   email: "tinkuteja740@gmail.com", 
-  whatsappNumber: "918106873661", 
+  whatsappNumber: "8106873661", 
   phoneNumber: "7569474682", 
   location: "Hyderabad, India", 
   whatsappMessage: "Hi! I'm interested in working with you. Can we chat?", 
