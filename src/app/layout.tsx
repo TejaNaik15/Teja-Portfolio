@@ -11,7 +11,6 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  // Use env var in production, fallback to localhost in dev
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: `${personalInfo.name} - ${personalInfo.title}`,
   description: siteConfig.seoDescription,
@@ -48,15 +47,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+    
+        <meta name="color-scheme" content="dark" />
+        <meta name="theme-color" content="#0a0a0a" />
+
+    
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
-                  // Force dark mode on all devices
-                  document.documentElement.style.colorScheme = 'dark';
                   document.documentElement.classList.add('dark');
                   document.documentElement.setAttribute('data-theme', 'dark');
+                  document.documentElement.style.backgroundColor = '#0a0a0a';
                   document.body.style.backgroundColor = '#0a0a0a';
                   document.body.style.color = '#ededed';
                 } catch (e) {
@@ -67,7 +70,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${outfit.variable} antialiased bg-neutral-950 text-neutral-100 dark`}>{children}</body>
+
+    
+      <body className={`${outfit.variable} antialiased bg-neutral-950 text-neutral-100 dark`}>
+        {children}
+      </body>
     </html>
   );
 }
