@@ -12,7 +12,6 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  // Use env var in production, fallback to localhost in dev
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: `${personalInfo.name} - ${personalInfo.title}`,
   description: siteConfig.seoDescription,
