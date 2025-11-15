@@ -16,11 +16,60 @@
 html {
   background-color: var(--background);
   color: var(--foreground);
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Enhanced smooth scrolling for all browsers */
+* {
+  scroll-behavior: smooth;
+}
+
+/* iOS Safari smooth scrolling fix */
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}
+
+/* Mobile browser optimizations */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  body {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* Android Chrome smooth scrolling */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  html {
+    scroll-behavior: smooth !important;
+  }
+}
+
+/* Samsung Internet browser */
+@supports (-webkit-appearance: none) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Smooth scrolling polyfill for older browsers */
+@supports not (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 * {
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
+
+
 
 body {
   background: var(--background);

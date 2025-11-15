@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { personalInfo, siteConfig } from "./data/data";
+import { Providers } from "./components/Providers";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -47,27 +48,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  // Force dark mode on all devices
-                  document.documentElement.style.colorScheme = 'dark';
-                  document.documentElement.classList.add('dark');
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                  document.body.style.backgroundColor = '#0a0a0a';
-                  document.body.style.color = '#ededed';
-                } catch (e) {
-                  console.warn('Theme initialization failed:', e);
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body className={`${outfit.variable} antialiased bg-neutral-950 text-neutral-100 dark`}>{children}</body>
+      <body className={`${outfit.variable} antialiased bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100`}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

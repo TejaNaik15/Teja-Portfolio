@@ -45,10 +45,12 @@ export function MusicToggle() {
     if (!audioRef.current || !mounted) return;
 
     try {
-      if (audioRef.current.paused) {
-        await audioRef.current.play();
-      } else {
+      if (isPlaying) {
         audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        await audioRef.current.play();
+        setIsPlaying(true);
       }
     } catch (error) {
       console.error('Audio playback failed:', error);

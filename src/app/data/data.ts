@@ -157,9 +157,9 @@ export const navbarData: NavbarItem[] = [
     size: "18px",
   },
   {
-    name: "Github",
+    name: "GitHub",
     type: "link",
-    icon: IoLogoGithub,
+    icon: FaGithub,
     url: socialLinks.github,
     size: "18px",
   },

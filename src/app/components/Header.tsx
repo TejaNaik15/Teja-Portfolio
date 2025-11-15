@@ -5,6 +5,8 @@ import { navbarData } from "../data/data";
 import { motion } from "framer-motion";
 import { liVariants, tooltipVariants } from "../data/variants";
 import { MusicToggle } from "./MusicToggle";
+import { smoothScrollTo } from "../utils/smoothScroll";
+
 interface HeaderProps {
   sectionRefs: Record<string, RefObject<HTMLElement | null>>;
 }
@@ -16,9 +18,7 @@ const Header: React.FC<HeaderProps> = ({ sectionRefs }) => {
     url?: string
   ) => {
     if (type === "scroll") {
-      sectionRefs[section]?.current?.scrollIntoView({
-        behavior: "smooth",
-      });
+      smoothScrollTo(sectionRefs[section]?.current);
     } else if (type === "link" && url) {
       window.open(url, "_blank");
     }
@@ -73,8 +73,7 @@ const Header: React.FC<HeaderProps> = ({ sectionRefs }) => {
             </div>
           );
         })}
-        
-        
+
         <div className="h-6 w-px bg-neutral-300 dark:bg-neutral-600 mx-1"></div>
         <MusicToggle />
         </motion.ul>
