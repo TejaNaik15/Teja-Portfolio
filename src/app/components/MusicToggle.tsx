@@ -13,13 +13,13 @@ export function MusicToggle() {
   useEffect(() => {
     setMounted(true);
     
-    // Create audio element
+    
     const audio = new Audio('/music/background.mp3');
     audio.loop = true;
     audio.volume = 0.3;
     audio.preload = 'auto';
     
-    // Add event listeners
+    
     const handlePlay = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
     const handleEnded = () => setIsPlaying(false);
