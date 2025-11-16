@@ -268,7 +268,7 @@ export const certifications = [
     credentialId: "GFG-DSA-JS-2025",
     icon: SiJavascript,
     color: "#F7DF1E",
-    certificateUrl: "https://www.geeksforgeeks.org/certificates/"
+    certificateUrl: "https://drive.google.com/file/d/1yn6eXkYdlIzdYvRaM6rl20XW1ek8NRP8/view?usp=sharing"
   },
   {
     name: "Full Stack Web Development",
@@ -277,7 +277,7 @@ export const certifications = [
     credentialId: "UDEMY-FULLSTACK-2025",
     icon: FaReact,
     color: "#61DAFB",
-    certificateUrl: "https://www.udemy.com/certificate/"
+    certificateUrl: "https://drive.google.com/file/d/1X2NX3sGv2ks7W9zKqxUNXAx_nT37aHQC/view?usp=sharing"
   },
   {
     name: "C++ Certification",
@@ -286,7 +286,7 @@ export const certifications = [
     credentialId: "GFG-CPP-2024",
     icon: FaCuttlefish,
     color: "#00599C",
-    certificateUrl: "https://www.geeksforgeeks.org/certificates/"
+    certificateUrl: "https://drive.google.com/file/d/1uMmbPIfIujG0CA_GkEQcqr8Ko-0u8f8a/view?usp=sharing"
   },
   {
     name: "next.js Certification",
@@ -295,7 +295,7 @@ export const certifications = [
     credentialId: "GFG-NEXTJS-2025",
     icon: SiNextdotjs,
     color: "#ffffff",
-    certificateUrl: "https://www.geeksforgeeks.org/certificates/"
+    certificateUrl: "https://drive.google.com/file/d/1rS0y9dHkNdZcHwdlMgcRjkDDgzN0lmqs/view?usp=sharing"
   },
   {
     name: "python for data science",
@@ -304,7 +304,7 @@ export const certifications = [
     credentialId: "IBM-PY-DS-2025",
     icon: FaPython,
     color: "#3776AB",
-    certificateUrl: "https://www.ibm.com/training/credentials"
+    certificateUrl: "https://drive.google.com/file/d/1dn7JK7JbSb2n3fJsmm26UstyBvPsSp5H/view?usp=sharing"
   },
   {
     name: "Generative AI and ChatGPT",
@@ -313,7 +313,7 @@ export const certifications = [
     credentialId: "OPENAI-GENAI-2025",
     icon: SiOpenai,
     color: "#10A37F",
-    certificateUrl: "https://www.geeksforgeeks.org/certificates/"
+    certificateUrl: "https://drive.google.com/file/d/1Ea_bOV-A_oSQe1zgv_zLFPjpl3cR23oA/view?usp=sharing"
   }
 ];
 
