@@ -154,6 +154,7 @@ export const navbarData: NavbarItem[] = [
     url: socialLinks.github,
     size: "18px",
   },
+
 ];
 
 
@@ -266,7 +267,8 @@ export const certifications = [
     date: "2025",
     credentialId: "GFG-DSA-JS-2025",
     icon: SiJavascript,
-    color: "#F7DF1E"
+    color: "#F7DF1E",
+    certificateUrl: "https://www.geeksforgeeks.org/certificates/"
   },
   {
     name: "Full Stack Web Development",
@@ -274,7 +276,8 @@ export const certifications = [
     date: "2025",
     credentialId: "UDEMY-FULLSTACK-2025",
     icon: FaReact,
-    color: "#61DAFB"
+    color: "#61DAFB",
+    certificateUrl: "https://www.udemy.com/certificate/"
   },
   {
     name: "C++ Certification",
@@ -282,7 +285,8 @@ export const certifications = [
     date: "2024",
     credentialId: "GFG-CPP-2024",
     icon: FaCuttlefish,
-    color: "#00599C"
+    color: "#00599C",
+    certificateUrl: "https://www.geeksforgeeks.org/certificates/"
   },
   {
     name: "next.js Certification",
@@ -290,7 +294,8 @@ export const certifications = [
     date: "2025",
     credentialId: "GFG-NEXTJS-2025",
     icon: SiNextdotjs,
-    color: "#ffffff"
+    color: "#ffffff",
+    certificateUrl: "https://www.geeksforgeeks.org/certificates/"
   },
   {
     name: "python for data science",
@@ -298,7 +303,8 @@ export const certifications = [
     date: "2025",
     credentialId: "IBM-PY-DS-2025",
     icon: FaPython,
-    color: "#3776AB"
+    color: "#3776AB",
+    certificateUrl: "https://www.ibm.com/training/credentials"
   },
   {
     name: "Generative AI and ChatGPT",
@@ -306,7 +312,8 @@ export const certifications = [
     date: "2025",
     credentialId: "OPENAI-GENAI-2025",
     icon: SiOpenai,
-    color: "#10A37F"
+    color: "#10A37F",
+    certificateUrl: "https://www.geeksforgeeks.org/certificates/"
   }
 ];
 

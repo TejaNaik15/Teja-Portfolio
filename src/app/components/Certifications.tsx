@@ -19,12 +19,15 @@ const Certifications = () => {
           {certifications.map((cert, index) => {
             const Icon = cert.icon;
             return (
-              <motion.div
+              <motion.a
                 key={index}
+                href={cert.certificateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg p-3 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
+                className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg p-3 hover:border-neutral-400 dark:hover:border-neutral-600 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-md block"
               >
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 mt-1">
@@ -42,7 +45,7 @@ const Certifications = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </motion.a>
             );
           })}
         </div>
