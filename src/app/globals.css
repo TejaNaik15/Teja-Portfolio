@@ -90,7 +90,12 @@ body {
 }
 
 .navbar-li {
-  @apply sm:hover:bg-neutral-200 dark:sm:hover:bg-neutral-700 rounded-full p-2 md:p-2.5 cursor-pointer;
+  @apply sm:hover:bg-neutral-200 dark:sm:hover:bg-neutral-700 rounded-full p-2 md:p-2.5 cursor-pointer transition-colors duration-200;
+}
+
+/* Ensure navbar icons are always visible */
+.navbar-li svg {
+  @apply text-neutral-900 dark:text-neutral-100;
 }
 
 .shine {
