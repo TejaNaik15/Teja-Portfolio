@@ -39,7 +39,7 @@ export const personalInfo = {
   
   name: "Keloth Teja Naik", 
   title: "Full Stack Developer", 
-  tagline: "Crafting Dynamic Web Experiences With Motion & Meaning",
+  tagline: "Crafting Smooth, Minimal & High-Impact Interfaces",
   description:
     "Hey, I'm Keloth Teja Naik, a Full Stack Developer passionate about building performant, user-friendly, and scalable applications.", 
 
