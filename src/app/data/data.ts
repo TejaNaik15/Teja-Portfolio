@@ -44,7 +44,7 @@ export const personalInfo = {
     "Hey, I'm Keloth Teja Naik, a Full Stack Developer passionate about building performant, user-friendly, and scalable applications.", 
 
   
-  profileImage: "/img/profilepic.webp",
+  profileImage: "/img/TEJATINKU.webp",
   profileImageAlt: "Teja Naik Profile Picture", 
   summary:
     "I'm a passionate Full-Stack Developer who enjoys building and exploring new technologies. Always learning and creating innovative solutions.", 
