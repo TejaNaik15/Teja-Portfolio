@@ -238,13 +238,27 @@ export const projects = [
 ];
 
 
-export const education = {
-  institution: "CMR Institute of Technology",
-  degree: "Bachelor of Technology in Computer Science and Engineering",
-  
-  duration: "2021 - 2025",
-  location: "Hyderabad,   India",
-};
+export const education = [
+  {
+    level: "Schooling",
+    institution: "Montessori High School",
+    duration: "Until 2019",
+    location: "Hyderabad, India",
+  },
+  {
+    level: "Intermediate",
+    institution: "Sri Chaitanya Jr College",
+    duration: "2019 - 2021",
+    location: "Hyderabad, India",
+  },
+  {
+    level: "Bachelor of Technology",
+    institution: "CMR Institute of Technology",
+    degree: "B.Tech in Computer Science and Engineering",
+    duration: "2021 - 2025",
+    location: "Hyderabad, India",
+  },
+];
 
 
 export const experience = {
