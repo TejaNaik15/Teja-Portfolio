@@ -243,13 +243,14 @@ export const education = [
     level: "Schooling",
     institution: "Montessori High School",
     duration: "Until 2019",
-    location: "Hyderabad, India",
+    location: "Khammam, India",
   },
   {
     level: "Intermediate",
     institution: "Sri Chaitanya Jr College",
+    degree: "MPC (Mathematics, Physics, Chemistry)",
     duration: "2019 - 2021",
-    location: "Hyderabad, India",
+    location: "Khammam, India",
   },
   {
     level: "Bachelor of Technology",
