@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { fadeInUpLeft } from "../data/variants";
 import { education } from "../data/data";
+import { PinContainer } from "../ui/3d-pin";
 
 const Education = () => {
   const getLevelIcon = (level: string) => {
@@ -24,7 +25,7 @@ const Education = () => {
       whileInView="visible"
       className="pb-6 border-b border-neutral-300 dark:border-neutral-600"
     >
-      <div className="flex flex-col space-y-5">
+      <div className="flex flex-col space-y-8">
         <div className="flex items-center gap-2">
           <h3 className="text-lg text-neutral-900 dark:text-neutral-100 font-bold">
             🎓 Education
@@ -33,53 +34,54 @@ const Education = () => {
         </div>
 
         {Array.isArray(education) && education.length > 0 ? (
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {education.map((edu, index) => (
-              <motion.div
+              <PinContainer
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-neutral-50 to-neutral-100 dark:from-neutral-900 dark:to-neutral-800 p-4 border border-neutral-200 dark:border-neutral-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:shadow-lg dark:hover:shadow-blue-900/30"
+                title={edu.institution}
+                href="#"
+                containerClassName="w-full"
               >
-                {/* Background accent */}
-                <div className="absolute -right-16 -top-16 w-32 h-32 bg-blue-400 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-
-                <div className="relative z-10">
-                  {/* Header with icon and level */}
-                  <div className="flex items-start justify-between mb-2">
-                    <div className="flex items-start gap-3">
-                      <span className="text-2xl">{getLevelIcon(edu.level)}</span>
-                      <div className="flex-1">
-                        <p className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide">
-                          {edu.level}
-                        </p>
-                        <p className="text-neutral-900 dark:text-neutral-100 text-sm font-bold mt-1">
-                          {edu.institution}
-                        </p>
-                      </div>
+                <div className="flex flex-col h-full w-full space-y-3">
+                  {/* Icon and Level */}
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl">{getLevelIcon(edu.level)}</span>
+                    <div className="flex-1">
+                      <p className="text-xs font-semibold text-blue-300 uppercase tracking-widest">
+                        {edu.level}
+                      </p>
                     </div>
-                    <span className="text-xs font-medium text-neutral-600 dark:text-neutral-400 bg-neutral-200 dark:bg-neutral-700 px-3 py-1 rounded-full whitespace-nowrap">
-                      {edu.duration}
-                    </span>
                   </div>
 
-                  {/* Degree if exists */}
+                  {/* Institution Name */}
+                  <div>
+                    <p className="text-sm font-bold text-neutral-100 leading-tight">
+                      {edu.institution}
+                    </p>
+                  </div>
+
+                  {/* Degree */}
                   {edu.degree && (
-                    <div className="ml-11 mb-2">
-                      <p className="text-neutral-700 dark:text-neutral-300 text-xs font-semibold bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 px-2 py-1 rounded w-fit">
+                    <div className="py-2 px-3 rounded-lg bg-blue-900/30 border border-blue-500/30">
+                      <p className="text-xs font-semibold text-blue-300">
                         {edu.degree}
                       </p>
                     </div>
                   )}
 
-                  {/* Location */}
-                  <div className="ml-11 flex items-center gap-2 text-neutral-600 dark:text-neutral-400 text-xs">
-                    <span>📍</span>
-                    <span>{edu.location}</span>
+                  {/* Duration and Location */}
+                  <div className="pt-2 space-y-2 border-t border-neutral-700">
+                    <div className="flex items-center gap-2 text-xs text-neutral-400">
+                      <span>⏱️</span>
+                      <span className="font-medium">{edu.duration}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-neutral-400">
+                      <span>📍</span>
+                      <span className="font-medium">{edu.location}</span>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
+              </PinContainer>
             ))}
           </div>
         ) : (
