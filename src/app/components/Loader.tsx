@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const greetings = [
-  "Hello",
   "Hola",
   "Bonjour",
   "Ciao",
@@ -13,7 +12,6 @@ const greetings = [
   "こんにちは",
   "안녕하세요",
   "नमस्ते",
-  "مرحبا",
 ];
 
 export default function Loader({ onComplete }: { onComplete: () => void }) {
@@ -22,11 +20,11 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
 
   useEffect(() => {
     if (currentIndex < greetings.length) {
-      const timer = setTimeout(() => setCurrentIndex(currentIndex + 1), 250);
+      const timer = setTimeout(() => setCurrentIndex(currentIndex + 1), 400);
       return () => clearTimeout(timer);
     } else {
-      const nameTimer = setTimeout(() => setShowName(true), 100);
-      const completeTimer = setTimeout(() => onComplete(), 1100);
+      const nameTimer = setTimeout(() => setShowName(true), 200);
+      const completeTimer = setTimeout(() => onComplete(), 1500);
       return () => {
         clearTimeout(nameTimer);
         clearTimeout(completeTimer);
@@ -52,7 +50,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
               exit={{ opacity: 0, scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="text-7xl md:text-9xl font-black animated-text-gradient">
+              <div className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black animated-text-gradient px-4">
                 {greetings[currentIndex]}
               </div>
             </motion.div>
@@ -63,8 +61,8 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="text-8xl md:text-[12rem] font-black animated-text-gradient">
-                TEJA
+              <div className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black animated-text-gradient px-4 text-center">
+                This is Teja
               </div>
             </motion.div>
           )}
