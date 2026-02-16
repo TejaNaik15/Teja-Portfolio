@@ -37,10 +37,10 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-white dark:bg-black"
     >
       
-      <div className="relative flex flex-col items-center gap-8">
+      <div className="relative flex flex-col items-center justify-center gap-8 w-full h-full px-4">
         <AnimatePresence mode="wait">
           {!showName ? (
             <motion.div
