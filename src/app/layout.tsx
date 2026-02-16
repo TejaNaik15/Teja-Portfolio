@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import { personalInfo, siteConfig } from "./data/data";
 import { Providers } from "./components/Providers";
+import LoaderWrapper from "./components/LoaderWrapper";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -48,7 +49,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${outfit.variable} antialiased bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100`}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <LoaderWrapper>{children}</LoaderWrapper>
+        </Providers>
       </body>
     </html>
   );
