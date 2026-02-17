@@ -66,7 +66,6 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        minHeight: '100vh',
         minHeight: '100dvh'
       }}
     >
