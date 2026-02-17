@@ -34,52 +34,51 @@ const Education = () => {
         </div>
 
         {Array.isArray(education) && education.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="h-auto w-full flex flex-wrap items-center justify-center gap-8 py-8">
             {education.map((edu, index) => (
               <PinContainer
                 key={index}
                 title={edu.institution}
                 href="#"
-                containerClassName="w-full"
+                containerClassName="h-[30rem] w-[20rem]"
               >
-                <div className="flex flex-col h-full w-full space-y-3">
-                  {/* Icon and Level */}
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl">{getLevelIcon(edu.level)}</span>
-                    <div className="flex-1">
-                      <p className="text-xs font-semibold text-blue-300 uppercase tracking-widest">
-                        {edu.level}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Institution Name */}
+                <div className="flex flex-col h-full w-full justify-between p-2 tracking-tight text-neutral-100/50 sm:basis-1/2">
+                  {/* Header */}
                   <div>
-                    <p className="text-sm font-bold text-neutral-100 leading-tight">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-4xl">{getLevelIcon(edu.level)}</span>
+                    </div>
+                    <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base text-neutral-100">
                       {edu.institution}
+                    </h3>
+                    <p className="text-xs !m-0 !p-0 font-normal text-neutral-400 mb-3">
+                      {edu.level}
                     </p>
                   </div>
 
-                  {/* Degree */}
-                  {edu.degree && (
-                    <div className="py-2 px-3 rounded-lg bg-blue-900/30 border border-blue-500/30">
-                      <p className="text-xs font-semibold text-blue-300">
-                        {edu.degree}
-                      </p>
-                    </div>
-                  )}
-
-                  {/* Duration and Location */}
-                  <div className="pt-2 space-y-2 border-t border-neutral-700">
-                    <div className="flex items-center gap-2 text-xs text-neutral-400">
-                      <span>⏱️</span>
-                      <span className="font-medium">{edu.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-xs text-neutral-400">
-                      <span>📍</span>
-                      <span className="font-medium">{edu.location}</span>
+                  {/* Content */}
+                  <div className="text-sm !m-0 !p-0 font-normal">
+                    {edu.degree && (
+                      <div className="mb-3 p-3 rounded-lg bg-blue-900/40 border border-blue-500/30">
+                        <span className="text-blue-300 font-semibold">
+                          {edu.degree}
+                        </span>
+                      </div>
+                    )}
+                    <div className="space-y-2 text-xs text-neutral-400">
+                      <div className="flex items-center gap-2">
+                        <span>⏱️</span>
+                        <span>{edu.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span>📍</span>
+                        <span>{edu.location}</span>
+                      </div>
                     </div>
                   </div>
+
+                  {/* Gradient accent */}
+                  <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 opacity-60" />
                 </div>
               </PinContainer>
             ))}
