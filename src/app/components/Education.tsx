@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { fadeInUpLeft } from "../data/variants";
 import { education } from "../data/data";
-import { PinContainer } from "../ui/3d-pin";
+import { AnimatedList } from "./AnimatedList";
 
 const Education = () => {
   const getLevelIcon = (level: string) => {
@@ -15,6 +15,19 @@ const Education = () => {
         return "🎓";
       default:
         return "📖";
+    }
+  };
+
+  const getLevelColor = (level: string) => {
+    switch (level) {
+      case "Schooling":
+        return "#FF6B6B";
+      case "Intermediate":
+        return "#4ECDC4";
+      case "Bachelor of Technology":
+        return "#FFD93D";
+      default:
+        return "#95E1D3";
     }
   };
 
@@ -34,54 +47,40 @@ const Education = () => {
         </div>
 
         {Array.isArray(education) && education.length > 0 ? (
-          <div className="h-auto w-full flex flex-wrap items-center justify-center gap-8 py-8">
-            {education.map((edu, index) => (
-              <PinContainer
-                key={index}
-                title={edu.institution}
-                href="#"
-                containerClassName="h-[30rem] w-[20rem]"
-              >
-                <div className="flex flex-col h-full w-full justify-between p-2 tracking-tight text-neutral-100/50 sm:basis-1/2">
-                  {/* Header */}
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-4xl">{getLevelIcon(edu.level)}</span>
+          <div className="relative flex h-auto w-full flex-col overflow-hidden p-2">
+            <AnimatedList delay={800}>
+              {education.map((edu, idx) => (
+                <div
+                  key={idx}
+                  className="relative mx-auto min-h-fit w-full max-w-[500px] cursor-pointer overflow-hidden rounded-2xl p-4 transition-all duration-200 ease-in-out hover:scale-[103%] bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:bg-transparent dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)]"
+                >
+                  <div className="flex flex-row items-center gap-3">
+                    <div
+                      className="flex size-12 items-center justify-center rounded-2xl"
+                      style={{ backgroundColor: getLevelColor(edu.level) }}
+                    >
+                      <span className="text-2xl">{getLevelIcon(edu.level)}</span>
                     </div>
-                    <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base text-neutral-100">
-                      {edu.institution}
-                    </h3>
-                    <p className="text-xs !m-0 !p-0 font-normal text-neutral-400 mb-3">
-                      {edu.level}
-                    </p>
-                  </div>
-
-                  {/* Content */}
-                  <div className="text-sm !m-0 !p-0 font-normal">
-                    {edu.degree && (
-                      <div className="mb-3 p-3 rounded-lg bg-blue-900/40 border border-blue-500/30">
-                        <span className="text-blue-300 font-semibold">
+                    <div className="flex flex-col overflow-hidden flex-1">
+                      <div className="flex flex-row items-center text-lg font-medium whitespace-pre dark:text-white">
+                        <span className="text-sm sm:text-base font-bold">{edu.institution}</span>
+                        <span className="mx-1">·</span>
+                        <span className="text-xs text-gray-500">{edu.duration}</span>
+                      </div>
+                      <p className="text-xs font-semibold text-neutral-600 dark:text-white/80">
+                        {edu.level}
+                      </p>
+                      {edu.degree && (
+                        <p className="text-xs font-normal text-neutral-500 dark:text-white/60 mt-1">
                           {edu.degree}
-                        </span>
-                      </div>
-                    )}
-                    <div className="space-y-2 text-xs text-neutral-400">
-                      <div className="flex items-center gap-2">
-                        <span>⏱️</span>
-                        <span>{edu.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span>📍</span>
-                        <span>{edu.location}</span>
-                      </div>
+                        </p>
+                      )}
+                      <p className="text-xs text-gray-400 mt-1">📍 {edu.location}</p>
                     </div>
                   </div>
-
-                  {/* Gradient accent */}
-                  <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 opacity-60" />
                 </div>
-              </PinContainer>
-            ))}
+              ))}
+            </AnimatedList>
           </div>
         ) : (
           <p className="text-neutral-600 dark:text-neutral-400 text-sm">
