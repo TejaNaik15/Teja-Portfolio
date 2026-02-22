@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ sectionRefs }) => {
   };
 
   return (
-    <nav className="fixed text-sm w-full top-0 pt-4 z-50 bg-gradient-to-b from-white dark:from-neutral-950 via-white/70 dark:via-neutral-950/70 to-transparent">
+    <nav className="fixed text-sm w-full top-10 pt-4 z-50 bg-gradient-to-b from-white dark:from-neutral-950 via-white/70 dark:via-neutral-950/70 to-transparent">
       <div className="flex items-center justify-center">
         <motion.ul
           initial={{ y: -5, opacity: 0, rotateY: 45 }}
