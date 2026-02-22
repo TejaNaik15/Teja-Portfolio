@@ -7,7 +7,6 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import BuyMeCoffeeButton from "./components/BuyMeCoffeeButton";
-import InfoBar from "./components/InfoBar";
 
 export default function Home() {
   const sectionRefs = {
@@ -19,7 +18,6 @@ export default function Home() {
 
   return (
     <>
-      <InfoBar />
       <Header sectionRefs={sectionRefs} />
       <Hero ref={sectionRefs.home} />
       <AboutMe ref={sectionRefs.about} />

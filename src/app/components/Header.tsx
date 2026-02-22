@@ -1,16 +1,36 @@
 "use client";
 
-import React, { RefObject } from "react";
+import React, { RefObject, useEffect, useState } from "react";
 import { navbarData } from "../data/data";
 import { motion } from "framer-motion";
 import { liVariants, tooltipVariants } from "../data/variants";
 import { MusicToggle } from "./MusicToggle";
 import { smoothScrollTo } from "../utils/smoothScroll";
+import { FiClock, FiMapPin } from "react-icons/fi";
 
 interface HeaderProps {
   sectionRefs: Record<string, RefObject<HTMLElement | null>>;
 }
 const Header: React.FC<HeaderProps> = ({ sectionRefs }) => {
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const indianTime = now.toLocaleTimeString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+      });
+      setTime(indianTime);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleScroll = (
     section: string,
@@ -25,8 +45,15 @@ const Header: React.FC<HeaderProps> = ({ sectionRefs }) => {
   };
 
   return (
-    <nav className="fixed text-sm w-full top-10 pt-4 z-50 bg-gradient-to-b from-white dark:from-neutral-950 via-white/70 dark:via-neutral-950/70 to-transparent">
-      <div className="flex items-center justify-center">
+    <nav className="fixed text-sm w-full top-0 pt-4 z-50 bg-gradient-to-b from-white dark:from-neutral-950 via-white/70 dark:via-neutral-950/70 to-transparent">
+      <div className="flex items-center justify-between max-w-7xl mx-auto px-4">
+        {/* Time */}
+        <div className="flex items-center gap-2 text-xs text-neutral-700 dark:text-neutral-300">
+          <FiClock className="text-blue-500" />
+          <span className="font-medium hidden sm:inline">{time || "--:--:--"}</span>
+        </div>
+
+        {/* Navbar */}
         <motion.ul
           initial={{ y: -5, opacity: 0, rotateY: 45 }}
           whileInView={{ y: 0, opacity: 1, rotateY: 0 }}
@@ -79,6 +106,12 @@ const Header: React.FC<HeaderProps> = ({ sectionRefs }) => {
         <div className="h-6 w-px bg-neutral-300 dark:bg-neutral-600 mx-1"></div>
         <MusicToggle />
         </motion.ul>
+
+        {/* Location */}
+        <div className="flex items-center gap-2 text-xs text-neutral-700 dark:text-neutral-300">
+          <FiMapPin className="text-blue-500" />
+          <span className="font-medium hidden sm:inline">Hyderabad, India</span>
+        </div>
       </div>
     </nav>
   );
