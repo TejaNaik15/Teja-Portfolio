@@ -1,90 +1,94 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
-import { gsap } from "gsap";
-
-const greetings = [
-  "Hola",
-  "Bonjour",
-  "Ciao",
-  "Olá",
-  "Hallo",
-  "こんにちは",
-  "안녕하세요",
-  "नमस्ते",
-];
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Loader({ onComplete }: { onComplete: () => void }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [showName, setShowName] = useState(false);
-  const textRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    if (textRef.current) {
-      gsap.fromTo(
-        textRef.current,
-        { 
-          scale: 0.5, 
-          opacity: 0,
-          rotationX: -90,
-          y: 50
-        },
-        { 
-          scale: 1, 
-          opacity: 1,
-          rotationX: 0,
-          y: 0,
-          duration: 0.5,
-          ease: "back.out(1.7)"
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setTimeout(() => onComplete(), 500);
+          return 100;
         }
-      );
-    }
-  }, [currentIndex, showName]);
+        return prev + 2;
+      });
+    }, 50);
 
-  useEffect(() => {
-    if (currentIndex < greetings.length) {
-      const timer = setTimeout(() => setCurrentIndex(currentIndex + 1), 400);
-      return () => clearTimeout(timer);
-    } else {
-      const nameTimer = setTimeout(() => setShowName(true), 200);
-      const completeTimer = setTimeout(() => onComplete(), 1500);
-      return () => {
-        clearTimeout(nameTimer);
-        clearTimeout(completeTimer);
-      };
-    }
-  }, [currentIndex, onComplete]);
+    return () => clearInterval(interval);
+  }, [onComplete]);
 
   return (
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
-      className="fixed inset-0 z-[9999] bg-white dark:bg-black"
-      style={{ 
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '100dvh'
-      }}
+      transition={{ duration: 0.5 }}
+      className="fixed inset-0 z-[9999] bg-white dark:bg-black flex items-center justify-center"
     >
-      <div className="flex items-center justify-center w-full h-full">
-        {!showName ? (
-          <div
-            ref={textRef}
-            className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black animated-text-gradient px-4 text-center"
+      <div className="flex flex-col items-center gap-8">
+        {/* Animated Circles */}
+        <div className="relative w-32 h-32">
+          {[...Array(8)].map((_, i) => {
+            const angle = (i * 360) / 8;
+            const delay = i * 0.1;
+            return (
+              <motion.div
+                key={i}
+                className="absolute w-4 h-4 rounded-full"
+                style={{
+                  background: `linear-gradient(135deg, #667eea 0%, #764ba2 100%)`,
+                  left: '50%',
+                  top: '50%',
+                  marginLeft: '-8px',
+                  marginTop: '-8px',
+                }}
+                animate={{
+                  x: [0, Math.cos((angle * Math.PI) / 180) * 50, 0],
+                  y: [0, Math.sin((angle * Math.PI) / 180) * 50, 0],
+                  scale: [1, 1.5, 1],
+                  opacity: [0.3, 1, 0.3],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: delay,
+                  ease: "easeInOut",
+                }}
+              />
+            );
+          })}
+        </div>
+
+        {/* Progress Text */}
+        <div className="text-center">
+          <motion.div
+            className="text-6xl font-black animated-text-gradient"
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 1, repeat: Infinity }}
           >
-            {greetings[currentIndex]}
-          </div>
-        ) : (
-          <div
-            ref={textRef}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black animated-text-gradient px-4 text-center"
+            {progress}%
+          </motion.div>
+          <motion.p
+            className="text-sm text-neutral-600 dark:text-neutral-400 mt-2"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity }}
           >
-            This is Teja
-          </div>
-        )}
+            Loading Teja's Portfolio
+          </motion.p>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="w-64 h-1 bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden">
+          <motion.div
+            className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
+            initial={{ width: 0 }}
+            animate={{ width: `${progress}%` }}
+            transition={{ duration: 0.3 }}
+          />
+        </div>
       </div>
     </motion.div>
   );
