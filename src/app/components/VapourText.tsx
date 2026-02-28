@@ -81,11 +81,11 @@ export default function VapourText({ text, onComplete }: VapourTextProps) {
         }
       });
 
-      if (frame < 180) {
+      if (frame < 90) {
         animationId = requestAnimationFrame(animate);
       } else {
         setIsComplete(true);
-        setTimeout(() => onComplete?.(), 500);
+        onComplete?.();
       }
     };
 
