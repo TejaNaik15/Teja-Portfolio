@@ -10,7 +10,7 @@ const Hero = React.forwardRef<HTMLElement, unknown>((_, ref) => {
   return (
     <main
       ref={ref}
-      className="relative flex flex-col overflow-hidden gap-y-4 pt-24 md:pt-32 items-center min-h-screen mx-auto text-center rounded-b-xl"
+      className="relative flex flex-col gap-y-4 pt-24 md:pt-32 items-center min-h-screen w-full text-center rounded-b-xl"
     >
       {/* Fullscreen looping background video */}
       <video
@@ -18,17 +18,17 @@ const Hero = React.forwardRef<HTMLElement, unknown>((_, ref) => {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover -z-20"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260217_030345_246c0224-10a4-422c-b324-070b7c0eceda.mp4"
       />
 
       {/* 50% black overlay */}
-      <div className="absolute inset-0 bg-black/50 -z-10" />
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[1]" />
 
       {/* Bottom fade to blend with next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white dark:from-neutral-950 to-transparent z-0" />
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white dark:from-neutral-950 to-transparent z-[2]" />
 
-      <div className="relative z-10 flex flex-col gap-y-4 items-center text-white">
+      <div className="relative z-[3] flex flex-col gap-y-4 items-center text-white">
       <motion.p
         initial="hidden"
         whileInView="visible"
