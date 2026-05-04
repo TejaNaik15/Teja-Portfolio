@@ -11,6 +11,7 @@ import {
   SiSocketdotio,
   SiFirebase,
   SiMongodb,
+  SiNextdotjs,
 } from "react-icons/si";
 
 import {
@@ -218,8 +219,8 @@ export const projects = [
     image: "/img/airesume.png", 
   },
   {
-    name: "CodeInsights AI",
-    description: "CodeInsights AI that uses advanced AI  to analyze and optimize code, providing valuable insights and suggestions for code quality, performance.",
+    name: "Personal Portfolio",
+    description: "Designed and deployed a personal portfolio website with Next.js increasing professional visibility among recruiters.",
     points: [
       "Analyze code snippets for improvements.",
       " Get AI-generated suggestions.",
@@ -228,8 +229,8 @@ export const projects = [
     techStack: [
       { name: "React.js", icon: FaReact, color: "#61DAFB" },
       { name: "Tailwind CSS", icon: SiTailwindcss, color: "#38B2AC" },
-      { name: "node.js", icon: FaNodeJs, color: "#83CD29" },
-      { name: "Express.js", icon: SiExpress, color: "#C9D1D9" },
+      { name: "next.js", icon: SiNextdotjs , color: "#83CD29" },
+      { name: "TyoeScript", icon: SiTypescript, color: "#C9D1D9" },
     ],
     liveLink: "#",
     githubLink: "#",
