@@ -4,6 +4,7 @@ import { HiOutlineArrowDown } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { fadeInDown, fadeInUp } from "../data/variants";
 import { personalInfo, socialLinks } from "../data/data";
+import { LiquidButton } from "../ui/liquid-glass-button";
 
 
 const Hero = React.forwardRef<HTMLElement, unknown>((_, ref) => {
@@ -73,49 +74,19 @@ const Hero = React.forwardRef<HTMLElement, unknown>((_, ref) => {
         viewport={{ once: true, amount: 0.2 }}
         className="flex max-sm:flex-col w-full px-8 justify-center mt-2 gap-4 md:gap-6"
       >
-        <motion.a
-          className="px-8 flex group items-center justify-center gap-2 py-2 rounded-full border border-white/30 text-white text-sm md:text-lg cursor-pointer backdrop-blur-sm"
-          whileHover="hover"
-          href={socialLinks.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          variants={{
-            hover: { scale: 1.05 },
-          }}
+        <LiquidButton
+          className="text-sm md:text-base"
+          onClick={() => window.open(socialLinks.linkedin, "_blank", "noopener,noreferrer")}
         >
-          <motion.span
-            variants={{
-              hover: { rotate: [0, 15, -15, 0, 15, 0] },
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            👋
-          </motion.span>
           Let&apos;s Connect
-        </motion.a>
+        </LiquidButton>
 
-        <motion.a
-          whileHover="hover"
-          variants={{
-            hover: { scale: 1.05 },
-          }}
-          href={socialLinks.resumeLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-8 flex justify-center items-center gap-2 py-2 rounded-full border border-white/30 text-white text-sm md:text-lg cursor-pointer backdrop-blur-sm"
+        <LiquidButton
+          className="text-sm md:text-base"
+          onClick={() => window.open(socialLinks.resumeLink, "_blank", "noopener,noreferrer")}
         >
-          My Resume{" "}
-          <motion.span
-            variants={{
-              hover: {
-                y: [0, 4, -2, 4, 0],
-              },
-            }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <HiOutlineArrowDown className="md:text-lg" />
-          </motion.span>
-        </motion.a>
+          My Resume <HiOutlineArrowDown />
+        </LiquidButton>
       </motion.div>
       </div>
     </main>

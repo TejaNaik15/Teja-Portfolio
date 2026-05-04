@@ -22,7 +22,7 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
-  title: `${personalInfo.name} - ${personalInfo.title}`,
+  title: `${personalInfo.name} - Portfolio`,
   description: siteConfig.seoDescription,
   keywords: personalInfo.keywords,
   openGraph: {
