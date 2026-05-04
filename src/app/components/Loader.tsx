@@ -4,46 +4,56 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const EASE = [0.4, 0, 0.2, 1] as const;
-const WORDS = ["Teja Naik", "తేజ నాయక్", "तेजा नाइक", "தேஜா நாயக்"];
+const WORDS = ["Teja Naik", "తేజ నాయక్", "तेजा नाइक"];
+const DURATION = 2700;
 
 export default function Loader({ onComplete }: { onComplete: () => void }) {
   const [wordIndex, setWordIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const onCompleteRef = useRef(onComplete);
+  const completedRef = useRef(false);
   onCompleteRef.current = onComplete;
 
-  // Rotating words — stop at last word
+  // Word cycling — runs once, stops at last index
   useEffect(() => {
-    if (wordIndex >= WORDS.length - 1) return;
+    let count = 0;
     const id = setInterval(() => {
-      setWordIndex((i) => {
-        if (i >= WORDS.length - 1) { clearInterval(id); return i; }
-        return i + 1;
-      });
+      count++;
+      setWordIndex(count);
+      if (count >= WORDS.length - 1) clearInterval(id);
     }, 900);
     return () => clearInterval(id);
   }, []);
 
-  // Counter via rAF
+  // rAF counter — guarded so onComplete fires exactly once
   useEffect(() => {
     let raf: number;
     let start: number | null = null;
-    const DURATION = 2700;
 
     const tick = (ts: number) => {
       if (!start) start = ts;
-      const elapsed = ts - start;
-      const p = Math.min((elapsed / DURATION) * 100, 100);
+      const p = Math.min(((ts - start) / DURATION) * 100, 100);
       setProgress(p);
+
       if (p < 100) {
         raf = requestAnimationFrame(tick);
       } else {
-        setTimeout(() => onCompleteRef.current(), 400);
+        if (!completedRef.current) {
+          completedRef.current = true;
+          setTimeout(() => onCompleteRef.current(), 400);
+        }
       }
     };
 
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(raf);
+      // If unmounted before completion (e.g. HMR), still fire onComplete
+      if (!completedRef.current) {
+        completedRef.current = true;
+        onCompleteRef.current();
+      }
+    };
   }, []);
 
   return (
@@ -57,7 +67,12 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
-        style={{ position: "absolute", top: "clamp(2rem,4vw,3rem)", left: "clamp(2rem,4vw,3rem)", color: "#888888" }}
+        style={{
+          position: "absolute",
+          top: "clamp(2rem,4vw,3rem)",
+          left: "clamp(2rem,4vw,3rem)",
+          color: "#888888",
+        }}
         className="text-xs md:text-sm uppercase tracking-[0.3em]"
       >
         Portfolio
@@ -89,11 +104,19 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
-        style={{ position: "absolute", bottom: "clamp(2rem,4vw,3rem)", right: "clamp(2rem,4vw,3rem)" }}
+        style={{
+          position: "absolute",
+          bottom: "clamp(2rem,4vw,3rem)",
+          right: "clamp(2rem,4vw,3rem)",
+        }}
       >
         <span
           className="text-6xl md:text-8xl lg:text-9xl tabular-nums"
-          style={{ fontFamily: "var(--font-instrument-serif), 'Instrument Serif', serif", color: "#f5f5f5", fontWeight: 400 }}
+          style={{
+            fontFamily: "var(--font-instrument-serif), 'Instrument Serif', serif",
+            color: "#f5f5f5",
+            fontWeight: 400,
+          }}
         >
           {Math.round(progress).toString().padStart(3, "0")}
         </span>
