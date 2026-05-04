@@ -99,6 +99,15 @@ body {
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 }
 
+/* Hide scrollbar on navbar pill for mobile */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 .dark .navbar {
   box-shadow: rgba(255, 255, 255, 0.05) 0px 0px 16px;
 }

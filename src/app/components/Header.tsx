@@ -24,12 +24,12 @@ const Header: React.FC<HeaderProps> = ({ sectionRefs }) => {
   };
 
   return (
-    <nav className="fixed text-sm w-full top-0 pt-4 z-50 bg-gradient-to-b from-white dark:from-neutral-950 via-white/70 dark:via-neutral-950/70 to-transparent">
-      <div className="flex items-center justify-center">
+    <nav className="fixed text-sm w-full top-0 pt-3 z-50 bg-gradient-to-b from-white dark:from-neutral-950 via-white/70 dark:via-neutral-950/70 to-transparent">
+      <div className="flex items-center justify-center px-3">
         <motion.ul
           initial={{ y: -5, opacity: 0, rotateY: 45 }}
           whileInView={{ y: 0, opacity: 1, rotateY: 0 }}
-          className="flex items-center gap-2 md:gap-3 w-fit bg-white dark:bg-neutral-950 border border-neutral-300 dark:border-neutral-600 rounded-full px-3 py-1 navbar"
+          className="flex items-center gap-1 md:gap-3 w-fit max-w-[calc(100vw-1.5rem)] overflow-x-auto scrollbar-none bg-white dark:bg-neutral-950 border border-neutral-300 dark:border-neutral-600 rounded-full px-3 py-1 navbar"
           whileHover={{
             scaleX: 1.01,
           }}
