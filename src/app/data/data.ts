@@ -219,9 +219,9 @@ export const projects = [
     name: "Personal Portfolio",
     description: "Designed and deployed a personal portfolio website with Next.js increasing professional visibility among recruiters.",
     points: [
-      "Analyze code snippets for improvements.",
-      " Get AI-generated suggestions.",
-      " Clean, user-friendly interface.",
+      "Built with Next.js, TypeScript, Tailwind CSS and Framer Motion.",
+      "Features multilingual loader, ChromaGrid, and liquid glass buttons.",
+      "Fully responsive with dark mode and smooth scroll animations.",
     ],
     techStack: [
       { name: "React.js", icon: FaReact, color: "#61DAFB" },
@@ -229,7 +229,7 @@ export const projects = [
       { name: "next.js", icon: SiNextdotjs , color: "#83CD29" },
       { name: "TyoeScript", icon: SiTypescript, color: "#C9D1D9" },
     ],
-    liveLink: "#",
+    liveLink: "https://teja-portfolio-yrei.vercel.app/",
     githubLink: "#",
     image: "/img/code.png", 
   },

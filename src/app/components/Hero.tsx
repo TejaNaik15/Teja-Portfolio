@@ -85,7 +85,7 @@ const Hero = React.forwardRef<HTMLElement, unknown>((_, ref) => {
           className="text-sm md:text-base"
           onClick={() => window.open(socialLinks.resumeLink, "_blank", "noopener,noreferrer")}
         >
-          My Resume <HiOutlineArrowDown />
+          <span className="inline-flex items-center gap-2">My Resume <HiOutlineArrowDown /></span>
         </LiquidButton>
       </motion.div>
       </div>
