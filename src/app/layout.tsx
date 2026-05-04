@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Outfit, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { personalInfo, siteConfig } from "./data/data";
 import { Providers } from "./components/Providers";
 import LoaderWrapper from "./components/LoaderWrapper";
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+  style: "italic",
+  variable: "--font-instrument-serif",
+});
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -48,7 +56,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${outfit.variable} antialiased bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100`}>
+      <body className={`${outfit.variable} ${instrumentSerif.variable} antialiased bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100`}>
         <Providers>
           <LoaderWrapper>{children}</LoaderWrapper>
         </Providers>
