@@ -18,6 +18,8 @@ html {
   color: var(--foreground);
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Enhanced smooth scrolling for all browsers */
@@ -29,6 +31,7 @@ html {
 body {
   -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
+  will-change: scroll-position;
 }
 
 /* Mobile browser optimizations */
@@ -37,9 +40,20 @@ body {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   body {
+    /* GPU compositing — key for Android Chrome smoothness */
     -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+  }
+
+  /* Promote scrollable sections to their own compositor layer */
+  section, main {
+    will-change: transform;
     transform: translateZ(0);
   }
 }

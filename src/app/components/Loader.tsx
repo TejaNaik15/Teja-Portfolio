@@ -60,7 +60,14 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
     <motion.div
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6, ease: EASE }}
-      style={{ position: "fixed", inset: 0, zIndex: 9999, backgroundColor: "#0a0a0a" }}
+      style={{
+        position: "fixed",
+        top: 0, left: 0, right: 0,
+        height: "100dvh",
+        zIndex: 9999,
+        backgroundColor: "#0a0a0a",
+        overflow: "hidden",
+      }}
     >
       {/* Portfolio label — top left */}
       <motion.div
@@ -69,8 +76,8 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
         transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
         style={{
           position: "absolute",
-          top: "clamp(2rem,4vw,3rem)",
-          left: "clamp(2rem,4vw,3rem)",
+          top: "clamp(1.25rem, 5vw, 3rem)",
+          left: "clamp(1.25rem, 5vw, 3rem)",
           color: "#888888",
         }}
         className="text-xs md:text-sm uppercase tracking-[0.3em]"
@@ -79,7 +86,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
       </motion.div>
 
       {/* Rotating name — center */}
-      <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 1rem" }}>
         <AnimatePresence mode="wait">
           <motion.span
             key={wordIndex}
@@ -87,11 +94,15 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: EASE }}
-            className="text-4xl md:text-6xl lg:text-7xl italic"
             style={{
               fontFamily: "var(--font-instrument-serif), 'Instrument Serif', serif",
               color: "rgba(245,245,245,0.8)",
               fontWeight: 400,
+              fontStyle: "italic",
+              fontSize: "clamp(2rem, 10vw, 5rem)",
+              textAlign: "center",
+              display: "block",
+              maxWidth: "100%",
             }}
           >
             {WORDS[wordIndex]}
@@ -106,16 +117,18 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
         transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
         style={{
           position: "absolute",
-          bottom: "clamp(2rem,4vw,3rem)",
-          right: "clamp(2rem,4vw,3rem)",
+          bottom: "clamp(1.25rem, 5vw, 3rem)",
+          right: "clamp(1.25rem, 5vw, 3rem)",
         }}
       >
         <span
-          className="text-6xl md:text-8xl lg:text-9xl tabular-nums"
+          className="tabular-nums"
           style={{
             fontFamily: "var(--font-instrument-serif), 'Instrument Serif', serif",
             color: "#f5f5f5",
             fontWeight: 400,
+            fontSize: "clamp(3rem, 15vw, 8rem)",
+            lineHeight: 1,
           }}
         >
           {Math.round(progress).toString().padStart(3, "0")}
