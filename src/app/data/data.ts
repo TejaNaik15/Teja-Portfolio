@@ -12,6 +12,12 @@ import {
   SiFirebase,
   SiMongodb,
   SiNextdotjs,
+  SiTypescript,
+  SiFramer,
+  SiPostman,
+  SiVercel,
+  SiJavascript,
+  SiOpenai,
 } from "react-icons/si";
 
 import {
@@ -22,15 +28,6 @@ import {
   FaFigma,
   FaCuttlefish,
 } from "react-icons/fa";
-import {
-  SiTypescript,
-  SiNextdotjs,
-  SiFramer,
-  SiPostman,
-  SiVercel,
-  SiJavascript,
-  SiOpenai
-} from "react-icons/si";
 import { TbFileSpreadsheet, TbChartBar } from "react-icons/tb";
 import { LuSquareCode } from "react-icons/lu";
 import { IoLogoGithub } from "react-icons/io";
