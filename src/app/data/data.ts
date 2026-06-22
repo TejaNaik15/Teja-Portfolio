@@ -96,7 +96,7 @@ export const contactInfo = {
 export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/teja-naik-0b3021282/", 
   github: "https://github.com/TejaNaik15", 
-  resumeLink: "https://drive.google.com/file/d/YOUR_RESUME_ID/view", 
+  resumeLink: "/RESUME_OF_TEJA_NAIK_KELOTH.pdf", 
 };
 
 
